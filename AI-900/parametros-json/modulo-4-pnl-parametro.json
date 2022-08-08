@@ -1,0 +1,15 @@
+{
+	"kind": "Conversation",
+	"analysisInput": {
+		"conversationItem": {
+			"id": "1",
+			"text": "ligar a luz",
+			"participantId": "1"
+		}
+	},
+	"parameters": {
+		"projectName": "<nome do projeto>",
+		"deploymentName": "<nome do deploy>",
+		"stringIndexType": "TextElement_V8"
+	}
+}
