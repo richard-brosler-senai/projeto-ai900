@@ -8,8 +8,8 @@
 		}
 	},
 	"parameters": {
-		"projectName": "<nome do projeto>",
-		"deploymentName": "<nome do deploy>",
+		"projectName": "{{projectName}}",
+		"deploymentName": "{{deployName}}",
 		"stringIndexType": "TextElement_V8"
 	}
 }
