@@ -2,20 +2,20 @@
   "documents" : 
   [
     {
-	  "id" : "1"
+	  "id" : "1",
 	  "text" : "texto1"
     },
     {
-	  "id" : "2"
+	  "id" : "2",
 	  "text" : "texto2"
     },
     {
-	  "id" : "3"
+	  "id" : "3",
 	  "text" : "texto3"
     },
     {
-	  "id" : "4"
+	  "id" : "4",
 	  "text" : "texto4"
-    },
+    }
   ]
 }
