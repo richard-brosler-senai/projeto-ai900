@@ -9,16 +9,17 @@ dadosEnvio =  {
    "Inputs": {
      "WebServiceInput0":
        [
-         { "PatientID": 1882185,
-           "Pregnancies": 9,
-           "PlasmaGlucose": 104,
-           "DiastolicBloodPressure": 51,
-           "TricepsThickness": 7,
-           "SerumInsulin": 24,
-           "BMI": 27.36983156,
-           "DiabetesPedigree": 1.3504720469999998,
-           "Age": 43 }
-         ]
+         { "PatientID": 1882185,          # ID do paciente
+           "Pregnancies": 9,              # Meses de gravidez
+           "PlasmaGlucose": 104,          # Glicose
+           "DiastolicBloodPressure": 51,  # Pressão Diastólica
+           "TricepsThickness": 7,         # Espessura do tríceps
+           "SerumInsulin": 24,            # Insulina sérica
+           "BMI": 27.36983156,            # IMC
+           "DiabetesPedigree": 1.3504720469999998, # Linhagem de Diabetes
+           "Age": 43                      # Idade
+          }
+        ]
        },
    "GlobalParameters":  {}
  }

@@ -10,31 +10,31 @@ dadosEnvio = {
              "WebServiceInput0":
              [
                  {
-                     "symboling": 3,
-                     "normalized-losses": 1.0,
-                     "make": "alfa-romero",
-                     "fuel-type": "gas",
-                     "aspiration": "std",
-                     "num-of-doors": "two",
-                     "body-style": "convertible",
-                     "drive-wheels": "rwd",
-                     "engine-location": "front",
-                     "wheel-base": 88.6,
-                     "length": 168.8,
-                     "width": 64.1,
-                     "height": 48.8,
-                     "curb-weight": 2548,
-                     "engine-type": "dohc",
-                     "num-of-cylinders": "four",
-                     "engine-size": 130,
-                     "fuel-system": "mpfi",
-                     "bore": 3.47,
-                     "stroke": 2.68,
-                     "compression-ratio": 9,
-                     "horsepower": 111,
-                     "peak-rpm": 5000,
-                     "city-mpg": 21,
-                     "highway-mpg": 27
+                     "symboling": 3,                # Simbolizando
+                     "normalized-losses": 1.0,      # Perdas normalizadas
+                     "make": "alfa-romero",         # Marca
+                     "fuel-type": "gas",            # Tipo de Combustível
+                     "aspiration": "std",           # Aspiração
+                     "num-of-doors": "two",         # Número de portas
+                     "body-style": "convertible",   # Estilo do Corpo
+                     "drive-wheels": "rwd",         # Rodas Motrizes
+                     "engine-location": "front",    # Localização do Motor
+                     "wheel-base": 88.6,            # Distância entre Eixos
+                     "length": 168.8,               # Comprimento
+                     "width": 64.1,                 # Largura
+                     "height": 48.8,                # Altura
+                     "curb-weight": 2548,           # Peso do freio
+                     "engine-type": "dohc",         # Tipo do Motor
+                     "num-of-cylinders": "four",    # Número de cilindros
+                     "engine-size": 130,            # Tamanho do Motor
+                     "fuel-system": "mpfi",         # Sistema de Combustível
+                     "bore": 3.47,                  # Calibre
+                     "stroke": 2.68,                # Pressão Cilindros
+                     "compression-ratio": 9,        # Taxa de compressão
+                     "horsepower": 111,             # Potência em cavalos de força
+                     "peak-rpm": 5000,              # RPM 
+                     "city-mpg": 21,                # Consumo na cidade em milhas por galão
+                     "highway-mpg": 27              # Consumo na rodovia em milhas por galão
                  }
              ]
          },
