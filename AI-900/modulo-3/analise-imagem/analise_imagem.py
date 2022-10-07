@@ -2,9 +2,9 @@ import requests
 import time
 # Preencher os dados
 # Chave Primária de autenticacao
-chave = "8bc6cb095db644b797762fb730dd9bd1"
+chave = "CHAVE_API"
 # URL Ponto de extremidade
-urlApi = "https://brosler-visual.cognitiveservices.azure.com/"
+urlApi = "URL_API"
 # Header da requisição
 cabecalho = { "Ocp-Apim-Subscription-Key" : chave, "Content-Type" : "application/json" }
 # Opções de análise ativadas
