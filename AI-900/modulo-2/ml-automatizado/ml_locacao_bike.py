@@ -1,9 +1,9 @@
 import requests
 # Preencher os dados
 # URL Ponto de extremidade
-urlApi="http://1ff0da31-a18d-4a2e-b825-0a68dff22e79.brazilsouth.azurecontainer.io/score"
+urlApi="http://18ec774c-2fa2-4d1d-911f-9de49e1db216.brazilsouth.azurecontainer.io/score"
 # Chave Primária de autenticacao
-chave = "UyNXUd4cPBzfoHqldJbAai5MWonRQZCY"
+chave = "tqP5gs496QbQFeb30ueiZirholEUc71f"
 # Texto para envio, alterar os dados para enviar
 dadosEnvio = {
   "Inputs": { 
