@@ -1,4 +1,5 @@
 import requests
+import json
 # Preencher os dados
 # URL Ponto de extremidade
 urlApi="URL_API"
@@ -34,3 +35,5 @@ infoPaciente = retorno.json()["Results"]["WebServiceOutput0"][0]
 print("Paciente : " + str(infoPaciente["PatientID"]))
 print("Terá Diabetes? : " + ("Sim" if infoPaciente["DiabetesPrediction"]==1 else "Não"))
 print("Probabilidades de Diabetes: " + str(infoPaciente["Probability"]))
+print("----------------------------")
+print(json.dumps(retorno.json(),indent=3))

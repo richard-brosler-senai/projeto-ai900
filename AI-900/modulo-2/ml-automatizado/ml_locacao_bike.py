@@ -1,4 +1,5 @@
 import requests
+import json
 # Preencher os dados
 # URL Ponto de extremidade
 urlApi="URL_DA_API"
@@ -34,3 +35,5 @@ retorno = requests.post(urlApi, json=dadosEnvio, headers=cabecalhoEnvio)
 print(chr(27) + "[2J") 
 # Imprimindo o resultado
 print("Previsão de Locação de Bicicletas: " + str(retorno.json()["Results"][0]))
+print("----------------------------")
+print(json.dumps(retorno.json(),indent=3))
