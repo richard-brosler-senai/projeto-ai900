@@ -1,5 +1,6 @@
 import requests
 import json
+from os import system, name
 # Preencher os dados
 # URL Ponto de extremidade
 urlApi="URL_DA_API"
@@ -27,13 +28,19 @@ dadosEnvio = {
   },   
   "GlobalParameters": 1.0
 }
+# Função para limpar a tela
+def clear():
+  if name == "nt":
+    _ = system("cls")
+  else:
+    _ = system("clear")
 # Montando o cabeção de envio
 cabecalhoEnvio = { "Content-Type" : "application/json", "Authorization": f"Bearer {chave}" }
 # Realizando a requisição do serviço
 retorno = requests.post(urlApi, json=dadosEnvio, headers=cabecalhoEnvio)
 # Limpando a tela
-print(chr(27) + "[2J") 
+clear()
 # Imprimindo o resultado
 print("Previsão de Locação de Bicicletas: " + str(retorno.json()["Results"][0]))
-print("----------------------------")
+print("-" * 40)
 print(json.dumps(retorno.json(),indent=3))

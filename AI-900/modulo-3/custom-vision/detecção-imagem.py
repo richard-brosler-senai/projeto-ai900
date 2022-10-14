@@ -1,4 +1,5 @@
 from time import sleep
+from os import system, name
 import requests
 import json
 # Preencher os dados
@@ -31,10 +32,16 @@ imagens = [
 ]
 # Montando o cabeção de envio
 cabecalhoEnvio = { "Content-Type" : "application/json", "Prediction-Key": chave }
+# Função para limpar a tela
+def clear():
+  if name == "nt":
+    _ = system("cls")
+  else:
+    _ = system("clear")
 # Realizando a requisição do serviço
 # Limpando a tela
-tracos = "==================================="
-print(chr(27) + "[2J") 
+tracos = "=" * 40
+clear()
 for img in imagens: 
     # Texto para envio, alterar os dados para enviar
     print("Enviando uma imagem de {titulo}".format(**img))

@@ -1,7 +1,8 @@
 import requests
 import time
 import json
-tracos = "========================================="
+from os import system, name
+tracos = "=" * 40
 # Preencher os dados
 # Chave Primária de autenticacao
 chave = "CHAVE_API"
@@ -46,11 +47,16 @@ config = [
 ]
 # Url de chamada da api
 urlReq = urlApi + "/vision/v3.2/analyze?visualFeatures=" + opcoes
+# Função para limpar a tela
+def clear():
+  if name == "nt":
+    _ = system("cls")
+  else:
+    _ = system("clear")
 # Inicialização de variáveis
-limpaTela = chr(27) + "[2J"
 idImagem = 0
 while (idImagem<1 or idImagem>4):
-  print(limpaTela)
+  clear()
   print("Para esse exemplo, escolha uma das opções de imagem abaixo:")
   for it in config:
     print("{id} - {titulo}".format(**it))

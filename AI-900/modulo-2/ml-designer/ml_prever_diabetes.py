@@ -1,5 +1,6 @@
 import requests
 import json
+from os import system, name
 # Preencher os dados
 # URL Ponto de extremidade
 urlApi="URL_API"
@@ -24,16 +25,22 @@ dadosEnvio =  {
        },
    "GlobalParameters":  {}
  }
+# Função para limpar a tela
+def clear():
+  if name == "nt":
+    _ = system("cls")
+  else:
+    _ = system("clear")
 # Montando o cabeção de envio
 cabecalhoEnvio = { "Content-Type" : "application/json", "Authorization": f"Bearer {chave}" }
 # Realizando a requisição do serviço
 retorno = requests.post(urlApi, json=dadosEnvio, headers=cabecalhoEnvio)
 # Limpando a tela
-print(chr(27) + "[2J") 
+clear()
 # Imprimindo o resultado
 infoPaciente = retorno.json()["Results"]["WebServiceOutput0"][0]
 print("Paciente : " + str(infoPaciente["PatientID"]))
 print("Terá Diabetes? : " + ("Sim" if infoPaciente["DiabetesPrediction"]==1 else "Não"))
 print("Probabilidades de Diabetes: " + str(infoPaciente["Probability"]))
-print("----------------------------")
+print("-" * 40)
 print(json.dumps(retorno.json(),indent=3))
