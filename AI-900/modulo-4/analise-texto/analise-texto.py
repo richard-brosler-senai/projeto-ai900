@@ -130,3 +130,6 @@ res = requests.post(urlReq,json=corpoRequisicao, headers=cabecalho)
 dadosRetorno = res.json()
 print(json.dumps(dadosRetorno,indent=2))
 print(tracos)
+for entidades in dadosRetorno["documents"]:
+  for ent in entidades["entities"]:
+    print("Nome: {name} - url: {url} fonte:{dataSource}".format(**ent))
