@@ -16,7 +16,7 @@ header = { "Ocp-Apim-Subscription-Key" : chave, "Content-Type" : "application/js
 corpo = requests.get("https://raw.githubusercontent.com/MicrosoftLearning/AI-900-AIFundamentals/main/data/anomaly/data.json")
 response = requests.post(end_point+"/anomalydetector/v1.0/timeseries/entire/detect",headers=header,json=corpo.json())
 respData = response.json()
-dadosEnv = corpo.json();
+dadosEnv = corpo.json()
 for itens in respData:
     if ( itens == "expectedValues" ):
         id = 0
