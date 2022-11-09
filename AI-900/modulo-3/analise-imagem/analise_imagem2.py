@@ -3,13 +3,22 @@ import time
 import json
 import tkinter as tk
 from os import system, name
-
+from PIL import Image
+from io import BytesIO
+# Preencher os dados
+# Chave Primária de autenticacao
+chave = "CHAVE_API"
+# URL Ponto de extremidade
+urlApi = "URL_API"
+# Header da requisição
+cabecalho = { "Ocp-Apim-Subscription-Key" : chave, "Content-Type" : "application/json" }
+# Montando a janela de exibição
 window = tk.Tk()
 window.title("Análise de Imagens")
 window.geometry('800x400')
 
-l = tk.Label(window, width=80, text="Escolha as opções de análise abaixo disponíveis:",font=("Helvetica",10,"bold"))
-l.grid(row=0, column=0, columnspan=5)
+l = tk.Label(window, text="Escolha as opções de análise abaixo disponíveis:",font=("Helvetica",10,"bold"))
+l.grid(row=0, column=0, columnspan=5,sticky='w')
 # Configuração de opções
 confOpc = [
   {
@@ -100,15 +109,16 @@ coluna=1
 for it in confOpc:
   opc = tk.IntVar()
   opcs.append(opc)
-  c = tk.Checkbutton(window,text=it["texto"],variable=opc,onvalue=it["id"], offvalue=0,command=monta_valores).grid(row=linha,column=coluna)
+  c = tk.Checkbutton(window,text=it["texto"],variable=opc,onvalue=it["id"], offvalue=0,command=monta_valores)
+  c.grid(row=linha,column=coluna,sticky='w')
   coluna+=1
   if coluna>5:
     linha+=1
     coluna=1
 
 linha+=1
-l2 = tk.Label(window, width=80, text="Escolha qual imagem deseja análise:", font=("Helvetica",10,"bold"))
-l2.grid(row=linha, column=0, columnspan=5)
+l2 = tk.Label(window,text="Escolha qual imagem deseja análise:", font=("Helvetica",10,"bold"))
+l2.grid(padx=5,row=linha, column=0, columnspan=5,pady=5,sticky='w')
 
 def escolha_imagem():
   global idImg, pathImg
@@ -120,12 +130,33 @@ linha+=1
 opcRad = tk.IntVar()
 for it in config:
   c = tk.Radiobutton(window,text=it["titulo"],variable=opcRad,value=it["id"],command=escolha_imagem)
-  c.grid(row=linha,column=0,columnspan=5)
+  c.grid(row=linha,column=0,columnspan=5,sticky='w')
   linha+=1
 
 linha+=1
 l3 = tk.Label(window, text="Imagem Escolhida foi:",font=("Helvetica",10,"bold"))
-l3.grid(row=linha, column=0, columnspan=5)
+l3.grid(padx=5,row=linha, column=0, columnspan=5,sticky='w')
+
+def mostrar_imagem():
+  response = requests.get(pathImg)
+  img = Image.open(BytesIO(response.content))
+  img.show()
+
+linha+=1
+btn = tk.Button(window, text="Pressione para visualizar a imagem", command=mostrar_imagem)
+btn.grid(padx=10, pady=10, row=linha,column=0,columnspan=5,sticky='w')
+
+def analise_imagem():
+  # Url de chamada da api
+  urlReq = urlApi + "/vision/v3.2/analyze?visualFeatures=" + opcoes
+  corpoRequisicao = { "url" : pathImg }
+  # Fazendo a requisição para a Azure para obter a análise
+  res = requests.post(urlReq,json=corpoRequisicao, headers=cabecalho)
+  dadosRetorno = res.json()
+
+linha+=1
+btn = tk.Button(window, text="Pressione para analisar a imagem", command=analise_imagem)
+btn.grid(padx=10, pady=10, row=linha,column=0,columnspan=5,sticky='w')
 
 window.mainloop()
 
