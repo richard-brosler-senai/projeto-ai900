@@ -1,0 +1,6 @@
+requests
+scipy
+sounddevice
+playsound==1.2.2
+Pillow
+PyJSONViewer

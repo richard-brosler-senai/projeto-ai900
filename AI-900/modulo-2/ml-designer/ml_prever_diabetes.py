@@ -18,7 +18,7 @@ dadosEnvio =  {
            "TricepsThickness": 7,         # Espessura do tríceps
            "SerumInsulin": 24,            # Insulina sérica
            "BMI": 27.36983156,            # IMC
-           "DiabetesPedigree": 1.3504720469999998, # Linhagem de Diabetes
+           "DiabetesPedigree": 1.3504720, # Linhagem de Diabetes
            "Age": 43                      # Idade
           }
         ]
