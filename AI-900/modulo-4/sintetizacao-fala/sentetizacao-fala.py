@@ -33,7 +33,7 @@ corpoRequisicao = f"""<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:m
 </speak>"""
 urlReq = f"https://{regiaoApi}.tts.speech.microsoft.com/cognitiveservices/v1"
 # Efetuando a requisição para a Azure
-res = requests.post(urlReq,data=corpoRequisicao, headers=cabecalho)
+res = requests.post(urlReq,data=corpoRequisicao.encode("utf-8"), headers=cabecalho)
 # Gravando a resposta da requisição
 with open(arquivoDestino, 'wb') as fd:
   fd.write(res.content)

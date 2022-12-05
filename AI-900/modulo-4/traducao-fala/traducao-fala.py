@@ -40,6 +40,18 @@ config = [
     "idioma" : "Japonês",
     "voz" : "ja-JP-NanamiNeural"
   },
+  {
+    "id" : 5,
+    "sigla" : "ko",
+    "idioma" : "Coreano",
+    "voz" : "ko-KR-InJoonNeural"
+  },
+  {
+    "id" : 6,
+    "sigla" : "ar",
+    "idioma" : "Árabe",
+    "voz" : "ar-QA-MoazNeural"
+  },
 ]
 # Header da requisição
 cabecalho = { "Ocp-Apim-Subscription-Key" : chave, "Content-Type" : "audio/wav" }
@@ -78,7 +90,7 @@ print(tracos)
 textoFala = dadosRetorno["DisplayText"]
 # Agora iremos enviar para a tradução em outros idiomas
 idIdioma=0
-while (idIdioma<1 or idIdioma>4):
+while (idIdioma<1 or idIdioma>5):
   clear()
   print(f"Você disse: {textoFala}")
   print("Qual dos idiomas você deseja que seja traduzido? Veja as opções abaixo:")
