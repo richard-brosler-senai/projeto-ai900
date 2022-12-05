@@ -90,7 +90,7 @@ print(tracos)
 textoFala = dadosRetorno["DisplayText"]
 # Agora iremos enviar para a tradução em outros idiomas
 idIdioma=0
-while (idIdioma<1 or idIdioma>5):
+while (idIdioma<1 or idIdioma>6):
   clear()
   print(f"Você disse: {textoFala}")
   print("Qual dos idiomas você deseja que seja traduzido? Veja as opções abaixo:")
