@@ -1,7 +1,6 @@
+import requests,json
 from time import sleep
-from os import system, name
-import requests
-import json
+from click import clear
 # Preencher os dados
 # URL Ponto de extremidade para envio de Urls de imagens
 urlApi = "URL_DA_API"
@@ -32,19 +31,13 @@ imagens = [
 ]
 # Montando o cabeção de envio
 cabecalhoEnvio = { "Content-Type" : "application/json", "Prediction-Key": chave }
-# Função para limpar a tela
-def clear():
-  if name == "nt":
-    _ = system("cls")
-  else:
-    _ = system("clear")
 # Realizando a requisição do serviço
 # Limpando a tela
 tracos = "=" * 40
 clear()
 for img in imagens: 
     # Texto para envio, alterar os dados para enviar
-    print("Enviando uma imagem de {titulo}".format(**img))
+    print("Enviando uma imagem de",img.get("titulo",""))
     dadosEnvio = { "Url" : img["url"] }
     retorno = requests.post(urlApi, json=dadosEnvio, headers=cabecalhoEnvio)
     print(json.dumps(retorno.json(),indent=2))

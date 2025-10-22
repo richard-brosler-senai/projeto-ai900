@@ -1,7 +1,6 @@
+import requests, json
 from time import sleep
-from os import system, name
-import requests
-import json
+from click import clear
 # Preencher os dados
 # URL Ponto de extremidade para envio de Urls de imagens
 urlApi = "URL_DA_API"
@@ -27,7 +26,7 @@ imagens = [
     {
         "id" : 4,
         "titulo" : "Siamês",
-        "url" : "https://blog.dramei.com.br/wp-content/uploads/2019/05/Gato-Siames2.jpg"
+        "url" : "https://www.agrosete.com.br/wp-content/uploads/2017/07/siames-1-800x600.jpg"
     },
     {
         "id" : 5,
@@ -37,26 +36,21 @@ imagens = [
 ]
 # Montando o cabeção de envio
 cabecalhoEnvio = { "Content-Type" : "application/json", "Prediction-Key": chave }
-# Função para limpar a tela
-def clear():
-  if name == "nt":
-    _ = system("cls")
-  else:
-    _ = system("clear")
 # Realizando a requisição do serviço
 # Limpando a tela
 tracos = "=" * 40
 clear()
 for img in imagens: 
     # Texto para envio, alterar os dados para enviar
-    print("Enviando uma imagem de {titulo}".format(**img))
+    print("Enviando uma imagem de",img.get("titulo",""))
     dadosEnvio = { "Url" : img["url"] }
     retorno = requests.post(urlApi, json=dadosEnvio, headers=cabecalhoEnvio)
     print(json.dumps(retorno.json(),indent=2))
     print(tracos)
     print("Predicções encontradas:")
     for pred in retorno.json()["predictions"]:
-        print("\t{tagName}({probability})".format(**pred))
+        tagName = pred.get("tagName","").encode("utf-8").decode("utf-8")
+        print(f"\t{tagName}",pred.get("probability",""))
     # fechando o bloco com traços
     print(tracos)
     # Dando uma pausa de 2 segundos para não estourar as requisições
